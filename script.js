@@ -1,18 +1,17 @@
 let posts = [{
 
+    'authorImg': 'img/1.jpg',
     'author': 'tagesschau',
-    'image': 'img/img1.jpg',
+    'location': 'New York',
+    'image': 'img/gym.jpg',
     'description': 'Text1',
-    'location': '',
 },
-{
+{   'authorImg': 'img/1.jpg',
     'author': 'tagesschau',
-    'image': 'img/img1.jpg',
+    'location': 'New York',
+    'image': 'img/gym.jpg',
     'description': 'Text1',
-    'location': '',
 }
-
-
 
 ];
 
@@ -23,8 +22,19 @@ function show(){
         
         document.getElementById('postcontainer').innerHTML += `
         <div class="card">
-            <img src="${post['image']}">
-            <div>${post['author']}</div>
+            <div class="profile-section">
+                <img class="profilepicture" src="${post['authorImg']}">
+                <div class="author-details">
+                    <div>${post['author']}</div>
+                    <div>${post['location']}</div>
+                </div>
+            </div>
+            <img class="postimage" src="${post['image']}"> 
+            <div class="icons">
+            <img src="img/heart.png">
+            <img src="img/heart-filled.png" class="d-none">
+            <img src="img/bubble.png">
+            </div>
             <div>${post['description']}</div>
         <div>
         `;
