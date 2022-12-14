@@ -1,16 +1,38 @@
 let posts = [{
 
-    'authorImg': 'img/1.jpg',
-    'author': 'tagesschau',
+    'authorImg': 'img/4.jpg',
+    'author': 'The Brighton Newspaper',
+    'location': 'Brighton',
+    'image': 'img/newspaper.jpg',
+    'description': 'Text1',
+},
+{   
+    'authorImg': 'img/3.jpg',
+    'author': 'WFH',
+    'location': 'London',
+    'image': 'img/homeoffice.jpg',
+    'description': 'Text1',
+},
+{   
+    'authorImg': 'img/2.jpg',
+    'author': 'Worldwide News',
     'location': 'New York',
+    'image': 'img/soldier.jpg',
+    'description': 'Text1',
+},
+{   
+    'authorImg': 'img/1.jpg',
+    'author': 'Body44400',
+    'location': 'Washington',
     'image': 'img/gym.jpg',
     'description': 'Text1',
 },
-{   'authorImg': 'img/1.jpg',
-    'author': 'tagesschau',
-    'location': 'New York',
-    'image': 'img/gym.jpg',
-    'description': 'Text1',
+{   
+    'authorImg': 'img/race.jpg',
+    'author': 'The&nbsp;Racing&nbsp;Cyclist&nbsp;Magazine',
+    'location': 'Washington',
+    'image': 'img/tour-de-france.jpg',
+    'description': 'What is needed to become one of the best racing cyclist?',
 }
 
 ];
@@ -25,17 +47,21 @@ function show(){
             <div class="profile-section">
                 <img class="profilepicture" src="${post['authorImg']}">
                 <div class="author-details">
-                    <div>${post['author']}</div>
+                    <div class="author-bolt">${post['author']}</div>
                     <div>${post['location']}</div>
                 </div>
             </div>
             <img class="postimage" src="${post['image']}"> 
             <div class="icons">
-            <img src="img/heart.png">
-            <img src="img/heart-filled.png" class="d-none">
-            <img src="img/bubble.png">
+                <img src="img/heart.png">
+                <img src="img/heart-filled.png" class="d-none">
+                <img src="img/bubble.png">
             </div>
-            <div>${post['description']}</div>
+            <div>x likes</div>
+            <div class="description-section">
+                <div class="author-bolt">${post['author']}</div>
+                <div>${post['description']}</div>
+            </div>
         <div>
         `;
     }

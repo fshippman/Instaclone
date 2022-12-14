@@ -18,7 +18,7 @@
     display: none;
 }
 .card {
-    width: 800px;
+    width: 470px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin: 20px;
     padding: 10px;
@@ -41,9 +41,12 @@
     display: flex;
     flex-direction: column;
 }
-
+.author-bolt {
+    font-weight: bold;
+}
 .postimage{
-    width: 800px !important; 
+    width: 470px !important; 
+    max-height: 587.5px;
 }
 .icons {
     display: flex;
@@ -51,4 +54,9 @@
 .icons img {
     height: 25px;
     width: 25px;
+}
+.description-section {
+    display: flex;
+    width: 470px;
+    gap: 2px;
 }
