@@ -47,8 +47,14 @@ function show(){
             <div class="profile-section">
                 <img class="profilepicture" src="${post['authorImg']}">
                 <div class="author-details">
-                    <div class="author-bolt">${post['author']}</div>
-                    <div>${post['location']}</div>
+                    <a href="#" class="authorlink">
+                        <div class="bolt">
+                            ${post['author']}
+                        </div>
+                    </a>
+                    <div>
+                        ${post['location']}
+                    </div>
                 </div>
             </div>
             <img class="postimage" src="${post['image']}"> 
@@ -57,10 +63,22 @@ function show(){
                 <img src="img/heart-filled.png" class="d-none">
                 <img src="img/bubble.png">
             </div>
-            <div>x likes</div>
+            <div class="likes">
+                x likes
+            </div>
             <div class="description-section">
-                <div class="author-bolt">${post['author']}</div>
-                <div>${post['description']}</div>
+                <a href="#" class="namelink">
+                    <div class="bolt">
+                        ${post['author']}
+                    </div>
+                </a>
+                <div>
+                    ${post['description']}
+                </div>
+            </div>
+            <div class="commentsection">
+                <textarea placeholder="Add a comment"></textarea>
+                <a href="#" class="bluelink">Post</a>
             </div>
         <div>
         `;
