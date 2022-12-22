@@ -1,4 +1,5 @@
 body {
+    margin: 0;
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
     background-color: #FAFAFA;
@@ -38,12 +39,10 @@ textarea {
     align-items: center;
     justify-content: space-evenly;
     position: sticky;
-    top: 0px;
-    padding: 0px 100px 20px 100px;
+    top: 0px; /* dont delete it! position sticky doesn't work then!!!!! */
+    padding: 0px 100px 0px 100px;
     background-color: white;
-    border-bottom-style: solid;
-    border-color: rgba(0, 0, 0, 0.1);
-    /* border-bottom: 1px solid rgba(0, 0, 0, 0.1); */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     height: 100px;
 }
 
@@ -79,25 +78,31 @@ nav img {
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin: 20px;
 }
-
+a {
+    cursor: pointer;
+}
 .namelink {
     text-decoration: none;
     color: black;
+  
 }
 
 .authorlink {
     text-decoration: none;
     color: black;
+    
 }
 
 .authorlink:hover {
     color: gray;
+    
 }
 
 .bluelink{
     font-weight: bold;
     text-decoration: none;
     color:#0095F6;
+    
 }
 
 .bluelink:hover {
@@ -164,6 +169,13 @@ nav img {
 }
 
 .commentsection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0 8px 8px;
+}
+
+.add-comment-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
