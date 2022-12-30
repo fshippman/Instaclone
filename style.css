@@ -81,16 +81,15 @@ nav img {
 a {
     cursor: pointer;
 }
+
 .namelink {
     text-decoration: none;
     color: black;
-  
 }
 
 .authorlink {
     text-decoration: none;
     color: black;
-    
 }
 
 .authorlink:hover {
@@ -102,7 +101,6 @@ a {
     font-weight: bold;
     text-decoration: none;
     color:#0095F6;
-    
 }
 
 .bluelink:hover {
@@ -165,16 +163,18 @@ a {
     display: flex;
     width: 470px;
     gap: 2px;
-    padding: 8px;
+    padding: 8px 8px 0px 8px;
 }
 
 .commentsection {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
+   /*  justify-content: space-between; */
     padding: 0 0 8px 8px;
 }
-
+.test {
+    padding-top: 8px;
+}
 .add-comment-section {
     display: flex;
     align-items: center;
