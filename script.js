@@ -55,6 +55,7 @@ function createShowHTML(i) {
     const post = posts[i];
     return /*html*/`
     <div class="card">
+        <!-- POST -->
         <div class="profile-section">
             <img class="profilepicture" src="${post['authorImg']}">
             <div class="author-details">
@@ -69,14 +70,21 @@ function createShowHTML(i) {
             </div>
         </div>
         <img class="postimage" src="${post['image']}"> 
+        <!-- ICONS -->
         <div class="icons">
-            <img src="img/heart.png">
-            <img src="img/heart-filled.png" class="d-none">
+        <a href="#" id="heart-unfilled">
+            <img src="img/heart.png"  onclick="enableHeart();">
+        </a>
+        <a href="#" id="heart-filled" class="d-none">  
+            <img src="img/heart-filled.png"  onclick="disableHeart();">
+        </a>
             <img src="img/bubble.png">
         </div>
+        <!-- LIKES -->
         <div class="likes">
             x likes
         </div>
+        <!-- DESCRIPTION -->
         <div class="description-section">
             <a href="#" class="namelink">
                 <div class="bolt">
@@ -87,6 +95,7 @@ function createShowHTML(i) {
                 ${post['description']}
             </div>
         </div>
+        <!-- COMMENTS -->
         <div id="commentsection${i}" class="commentsection"> 
         </div>
         <div class="add-comment-section">
@@ -96,6 +105,17 @@ function createShowHTML(i) {
     <div>
     `;
 }
+function enableHeart() {
+   /*  element.classList.contains(class); */
+    document.getElementById('heart-filled').classList.remove('d-none');
+    document.getElementById('heart-unfilled').classList.add('d-none');
+}
+
+function disableHeart() {
+    document.getElementById('heart-filled').classList.add('d-none');
+    document.getElementById('heart-unfilled').classList.remove('d-none');
+}
+
 function renderComments(index) {
     document.getElementById(`commentsection${index}`).innerHTML = '';
     for (let j = 0; j < posts[index]['comments'].length; j++) {
