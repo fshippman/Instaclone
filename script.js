@@ -121,7 +121,7 @@ function renderComments(index) {
     for (let j = 0; j < posts[index]['comments'].length; j++) {
         const comment = posts[index]['comments'][j];
         document.getElementById(`commentsection${index}`).innerHTML += `
-            <div class="test">
+            <div class="single-comment">
                <a href="#" class="comment namelink bolt">The&nbsp;Racing&nbsp;Cyclist&nbsp;Magazine</a> ${comment}\n
             </div>
             `;
