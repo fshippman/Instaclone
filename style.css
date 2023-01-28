@@ -39,7 +39,8 @@ textarea {
     align-items: center;
     justify-content: space-evenly;
     position: sticky;
-    top: 0px; /* dont delete it! position sticky doesn't work then!!!!! */
+    top: 0px;
+    /* dont delete it! position sticky doesn't work then!!!!! */
     padding: 0px 100px 0px 100px;
     background-color: white;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -78,6 +79,7 @@ nav img {
     border: 1px solid rgba(0, 0, 0, 0.1);
     margin: 20px;
 }
+
 a {
     cursor: pointer;
     text-decoration: none;
@@ -96,28 +98,28 @@ a {
 
 .authorlink:hover {
     color: gray;
-    
+
 }
 
-.bluelink{
+.bluelink {
     font-weight: bold;
     text-decoration: none;
-    color:#0095F6;
+    color: #0095F6;
 }
 
 .bluelink:hover {
     color: #01376B;
 }
 
-.suggestion{
+.suggestion {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 16px;
-    margin:8px;
+    margin: 8px;
 }
 
-.profile-section{
+.profile-section {
     display: flex;
     align-items: center;
     gap: 16px;
@@ -131,7 +133,7 @@ a {
     object-fit: cover;
 }
 
-.author-details{
+.author-details {
     display: flex;
     flex-direction: column;
     min-width: 250px;
@@ -141,8 +143,8 @@ a {
     font-weight: bold;
 }
 
-.postimage{
-    width: 470px !important; 
+.postimage {
+    width: 470px !important;
     max-height: 587.5px;
 }
 
@@ -171,17 +173,95 @@ a {
 .commentsection {
     display: flex;
     flex-direction: column;
-   /*  justify-content: space-between; */
+    /*  justify-content: space-between; */
     padding: 0 8px 8px 8px;
 }
+
 .single-comment {
     padding-top: 8px;
     word-wrap: break-word;
 }
+
 .add-comment-section {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 8px;
     border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media(max-width: 1000px) {
+    .nav {
+        height: 100px;
+        padding: 0px 20px 0px 20px;
+    }
+
+    .nav-icons {
+        display: none;
+    }
+
+    .content {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    #suggestionscontainer {
+        display: flex;
+        justify-content: center;
+    }
+
+    @media(max-width: 490px) {
+        .nav {
+            height: 100px;
+            padding: 0px 20px 0px 20px;
+        }
+
+        .card {
+            width: 400px;
+        }
+
+        .postimage {
+            width: 400px !important;
+        }
+
+        .description-section {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    @media(max-width: 430px) {
+        input{
+            display: none;
+        }
+        .card {
+            width: 250px;
+        }
+
+        .suggestion {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+
+        }
+
+        .postimage {
+            width: 250px !important;
+        }
+
+        .profilepicture {
+            height: 40px;
+            width: 40px;
+        }
+
+        .description-section {
+            display: flex;
+            flex-direction: column;
+            width: 250px;
+            word-wrap: break-word;
+
+        }
+    }
+
 }
