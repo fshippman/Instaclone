@@ -4,6 +4,7 @@ let posts = [{
     'author': 'The Brighton Newspaper',
     'location': 'Brighton',
     'image': 'img/newspaper.jpg',
+    'likes': '147',
     'description': 'Text1',
     'comments':[],
 },
@@ -12,6 +13,7 @@ let posts = [{
     'author': 'WFH',
     'location': 'London',
     'image': 'img/homeoffice.jpg',
+    'likes': '479',
     'description': 'Text1',
     'comments':[],
 },
@@ -20,6 +22,7 @@ let posts = [{
     'author': 'Worldwide News',
     'location': 'New York',
     'image': 'img/soldier.jpg',
+    'likes': '601',
     'description': 'Text1',
     'comments':[],
 },
@@ -28,6 +31,7 @@ let posts = [{
     'author': 'Body44400',
     'location': 'Washington',
     'image': 'img/gym.jpg',
+    'likes': '214',
     'description': 'Text1',
     'comments':[],
 },
@@ -36,6 +40,7 @@ let posts = [{
     'author': 'The&nbsp;Racing&nbsp;Cyclist&nbsp;Magazine',
     'location': 'Washington',
     'image': 'img/tour-de-france.jpg',
+    'likes': '702',
     'description': 'What is needed to become one of the best racing cyclist?',
     'comments':[],
 }
@@ -59,7 +64,7 @@ function createShowHTML(i) {
         <div class="profile-section">
             <img class="profilepicture" src="${post['authorImg']}">
             <div class="author-details">
-                <a href="#" class="authorlink">
+                <a href="##" class="authorlink">
                     <div class="bolt">
                         ${post['author']}
                     </div>
@@ -72,21 +77,21 @@ function createShowHTML(i) {
         <img class="postimage" src="${post['image']}"> 
         <!-- ICONS -->
         <div class="icons">
-        <a href="#" id="heart-unfilled">
-            <img src="img/heart.png"  onclick="enableHeart();">
+        <a href="##" id="heart-unfilled${i}">
+            <img src="img/heart.png"  onclick="enableHeart(${i});">
         </a>
-        <a href="#" id="heart-filled" class="d-none">  
-            <img src="img/heart-filled.png"  onclick="disableHeart();">
+        <a href="##" id="heart-filled${i}" class="d-none">  
+            <img src="img/heart-filled.png"  onclick="disableHeart(${i});">
         </a>
             <img src="img/bubble.png">
         </div>
         <!-- LIKES -->
-        <div class="likes">
-            x likes
+        <div class="likes" id="like${i}">
+        ${post['likes']} likes
         </div>
         <!-- DESCRIPTION -->
         <div class="description-section">
-            <a href="#" class="namelink">
+            <a href="##" class="namelink">
                 <div class="bolt">
                     ${post['author']}
                 </div>
@@ -105,15 +110,24 @@ function createShowHTML(i) {
     <div>
     `;
 }
-function enableHeart() {
+function enableHeart(index) {
    /*  element.classList.contains(class); */
-    document.getElementById('heart-filled').classList.remove('d-none');
-    document.getElementById('heart-unfilled').classList.add('d-none');
+    document.getElementById(`heart-filled${index}`).classList.remove('d-none');
+    document.getElementById(`heart-unfilled${index}`).classList.add('d-none');
+    posts[index]['likes']++;
+    renderLike(index);
 }
 
-function disableHeart() {
-    document.getElementById('heart-filled').classList.add('d-none');
-    document.getElementById('heart-unfilled').classList.remove('d-none');
+function disableHeart(index) {
+    document.getElementById(`heart-filled${index}`).classList.add('d-none');
+    document.getElementById(`heart-unfilled${index}`).classList.remove('d-none');
+    posts[index]['likes']--;
+    renderLike(index);
+}
+
+function renderLike(index){
+    document.getElementById(`like${index}`).innerHTML = `${posts[index]['likes']} likes`
+    ;
 }
 
 function renderComments(index) {
@@ -127,6 +141,7 @@ function renderComments(index) {
             `;
     }
 }
+
 
 function addComment(index) {
     let comment = document.getElementById(`textarea${index}`);
