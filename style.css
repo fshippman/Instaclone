@@ -3,8 +3,12 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-size: 13px;
     background-color: #FAFAFA;
+    overflow-x: hidden;
 }
-
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
 span {
     font-size: 20px;
 }
@@ -32,6 +36,8 @@ textarea {
 .content {
     display: flex;
     justify-content: center;
+    width: 100%;
+    margin: 0;
 }
 
 .nav {
@@ -45,6 +51,7 @@ textarea {
     background-color: white;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     height: 100px;
+    width: 100%;
 }
 
 nav img {
@@ -169,7 +176,9 @@ a {
     gap: 2px;
     padding: 8px 8px 0px 8px;
 }
-
+.description {
+    display: flex;
+}
 .commentsection {
     display: flex;
     flex-direction: column;
@@ -235,7 +244,8 @@ a {
             display: none;
         }
         .card {
-            width: 250px;
+            width: 300px;
+            min-width: 300px;
         }
 
         .suggestion {
@@ -247,7 +257,7 @@ a {
         }
 
         .postimage {
-            width: 250px !important;
+            width: 300px !important;
         }
 
         .profilepicture {
@@ -258,10 +268,38 @@ a {
         .description-section {
             display: flex;
             flex-direction: column;
-            width: 250px;
+            width: 300px;
             word-wrap: break-word;
 
         }
     }
 
+    @media(max-width: 310px) {
+        .card {
+            width: 250px;
+            min-width: 250px;
+            margin: 8px;
+        }
+        .suggestion {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 2px;
+        }
+        .postimage {
+            width: 250px !important;
+        }
+        .description-section {
+            display: flex;
+            flex-direction: column;
+            width: 250px;
+            word-wrap: break-word;
+
+        }
+    }
+    .author-details {
+        display: flex;
+        flex-direction: column;
+        min-width: 200px;
+    }
 }

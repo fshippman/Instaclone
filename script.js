@@ -96,7 +96,7 @@ function createShowHTML(i) {
                     ${post['author']}
                 </div>
             </a>
-            <div>
+            <div class="description">
                 ${post['description']}
             </div>
         </div>
