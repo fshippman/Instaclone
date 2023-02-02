@@ -145,7 +145,27 @@ function renderComments(index) {
 
 function addComment(index) {
     let comment = document.getElementById(`textarea${index}`);
-    posts[index]['comments'].push(comment.value);
-    comment.value = '';
-    renderComments(index);
+
+    if (formIsValid(index)) {
+        posts[index]['comments'].push(comment.value);
+        comment.value = '';
+        renderComments(index);
+    } else {
+        openDialog();
+    }
 }
+
+
+function formIsValid(index) {
+    let textareaValue = document.getElementById(`textarea${index}`).value.replaceAll('\n', '');
+    return !(textareaValue == null || textareaValue == "");     //! means that the content of the brackets is negated (False) same as  //    if (x) return -x  else: return x  ! means * -1    
+}
+
+function openDialog() {
+    document.getElementById('dialog').classList.remove('d-none');
+    document.getElementById('content').classList.add('disable-scrolling');
+    }
+
+function closeDialog() {
+        document.getElementById('dialog').classList.add('d-none');
+    }

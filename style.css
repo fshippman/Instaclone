@@ -202,6 +202,55 @@ a {
     border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+
+/* FORM VALIDATION */
+.dialog-bg {
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+    height: 50vh;
+    width: 50vw;
+    background-color: white;
+    /*  border: 1px solid lightgray; */
+    border-radius: 10px;
+    padding: 24px;
+}
+
+.disable-scrolling {
+    overflow-y: hidden;
+}
+
+.dialog-exit {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.dialog-exit img {
+    height: 32px;
+    width: 32px;
+}
+
+.d-none {
+    display: none;
+}
+
+
+
 @media(max-width: 1000px) {
     .nav {
         height: 100px;
@@ -301,7 +350,6 @@ a {
             flex-direction: column;
             width: 250px;
             word-wrap: break-word;
-
         }
     }
 
