@@ -6,7 +6,7 @@ let posts = [{
     'image': 'img/newspaper.jpg',
     'likes': '147',
     'description': 'Text1',
-    'comments':[],
+    'comments': [],
 },
 {
     'authorImg': 'img/2.jpg',
@@ -15,7 +15,7 @@ let posts = [{
     'image': 'img/homeoffice.jpg',
     'likes': '479',
     'description': 'Text1',
-    'comments':[],
+    'comments': [],
 },
 {
     'authorImg': 'img/3.jpg',
@@ -24,7 +24,7 @@ let posts = [{
     'image': 'img/soldier.jpg',
     'likes': '601',
     'description': 'Text1',
-    'comments':[],
+    'comments': [],
 },
 {
     'authorImg': 'img/4.jpg',
@@ -33,7 +33,7 @@ let posts = [{
     'image': 'img/gym.jpg',
     'likes': '214',
     'description': 'Text1',
-    'comments':[],
+    'comments': [],
 },
 {
     'authorImg': 'img/biker.jpg',
@@ -42,16 +42,18 @@ let posts = [{
     'image': 'img/tour-de-france.jpg',
     'likes': '702',
     'description': 'What is needed to become one of the best racing cyclist?',
-    'comments':[],
+    'comments': [],
+}];
+
+function getId(Id) {
+    return document.getElementById(Id);
 }
 
-];
-
 function show() {
-    document.getElementById('postcontainer').innerHTML += '';
+    getId('postcontainer').innerHTML += '';
     for (let i = 0; i < posts.length; i++) {
         const post = posts[i];
-        document.getElementById('postcontainer').innerHTML += createShowHTML(i);
+        getId('postcontainer').innerHTML += createShowHTML(i);
         renderComments(i);
     }
 }
@@ -77,17 +79,17 @@ function createShowHTML(i) {
         <img class="postimage" src="${post['image']}"> 
         <!-- ICONS -->
         <div class="icons">
-        <a href="##" id="heart-unfilled${i}">
-            <img src="img/heart.png"  onclick="enableHeart(${i});">
-        </a>
-        <a href="##" id="heart-filled${i}" class="d-none">  
-            <img src="img/heart-filled.png"  onclick="disableHeart(${i});">
-        </a>
+            <a href="##" id="heart-unfilled${i}">
+                <img src="img/heart.png"  onclick="enableHeart(${i});">
+            </a>
+            <a href="##" id="heart-filled${i}" class="d-none">  
+                <img src="img/heart-filled.png"  onclick="disableHeart(${i});">
+            </a>
             <img src="img/bubble.png">
         </div>
         <!-- LIKES -->
         <div class="likes" id="like${i}">
-        ${post['likes']} likes
+            ${post['likes']} likes
         </div>
         <!-- DESCRIPTION -->
         <div class="description-section">
@@ -101,51 +103,51 @@ function createShowHTML(i) {
             </div>
         </div>
         <!-- COMMENTS -->
-        <div id="commentsection${i}" class="commentsection"> 
-        </div>
+        <div id="commentsection${i}" class="commentsection"></div>                                
         <div class="add-comment-section">
             <textarea id="textarea${i}" placeholder="Add a comment"></textarea>
-            <a href="javascript:addComment(${i});" class="bluelink">Post</a>
+            <a href="javascript:addComment(${i});" class="bluelink">
+                Post
+            </a>
         </div>
     <div>
     `;
 }
+
 function enableHeart(index) {
-   /*  element.classList.contains(class); */
-    document.getElementById(`heart-filled${index}`).classList.remove('d-none');
-    document.getElementById(`heart-unfilled${index}`).classList.add('d-none');
+    /*  element.classList.contains(class); */
+    getId(`heart-filled${index}`).classList.remove('d-none');
+    getId(`heart-unfilled${index}`).classList.add('d-none');
     posts[index]['likes']++;
     renderLike(index);
 }
 
 function disableHeart(index) {
-    document.getElementById(`heart-filled${index}`).classList.add('d-none');
-    document.getElementById(`heart-unfilled${index}`).classList.remove('d-none');
+    getId(`heart-filled${index}`).classList.add('d-none');
+    getId(`heart-unfilled${index}`).classList.remove('d-none');
     posts[index]['likes']--;
     renderLike(index);
 }
 
-function renderLike(index){
-    document.getElementById(`like${index}`).innerHTML = `${posts[index]['likes']} likes`
-    ;
+function renderLike(index) {
+    getId(`like${index}`).innerHTML = `${posts[index]['likes']} likes
+    `;
 }
 
 function renderComments(index) {
-    document.getElementById(`commentsection${index}`).innerHTML = '';
+    getId(`commentsection${index}`).innerHTML = '';
     for (let j = 0; j < posts[index]['comments'].length; j++) {
         const comment = posts[index]['comments'][j];
-        document.getElementById(`commentsection${index}`).innerHTML += `
+        getId(`commentsection${index}`).innerHTML += `
             <div class="single-comment">
                <a href="#" class="comment namelink bolt">The&nbsp;Racing&nbsp;Cyclist&nbsp;Magazine</a> ${comment}\n
             </div>
-            `;
+        `;
     }
 }
 
-
 function addComment(index) {
-    let comment = document.getElementById(`textarea${index}`);
-
+    let comment = getId(`textarea${index}`);
     if (formIsValid(index)) {
         posts[index]['comments'].push(comment.value);
         comment.value = '';
@@ -155,17 +157,17 @@ function addComment(index) {
     }
 }
 
-
 function formIsValid(index) {
-    let textareaValue = document.getElementById(`textarea${index}`).value.replaceAll('\n', '');
+    let textareaValue = getId(`textarea${index}`).value.replaceAll('\n', '');
     return !(textareaValue == null || textareaValue == "");     //! means that the content of the brackets is negated (False) same as  //    if (x) return -x  else: return x  ! means * -1    
 }
 
 function openDialog() {
-    document.getElementById('dialog').classList.remove('d-none');
-    document.getElementById('content').classList.add('disable-scrolling');
-    }
+    getId('dialog').classList.remove('d-none');
+    getId('content').classList.add('disable-scrolling');
+}
 
 function closeDialog() {
-        document.getElementById('dialog').classList.add('d-none');
-    }
+    getId('dialog').classList.add('d-none');
+    getId('content').classList.remove('disable-scrolling');
+}
