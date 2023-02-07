@@ -228,11 +228,12 @@ a {
     padding: 24px;
 }
 
-.disable-scrolling {
+/* Wenn die deaktiviert ist hüpft die Seite nicht mehr nach oben aber man kann im dialog schrollen */
+/* .disable-scrolling {
     width: 100vw;
     height: 90vh;
     overflow: hidden;
-}
+} */
 
 .dialog-exit {
     width: 100%;
