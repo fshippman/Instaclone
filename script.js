@@ -163,11 +163,25 @@ function formIsValid(index) {
 }
 
 function openDialog() {
+    getId('HtmlID').classList.add('freeze');
     getId('dialog').classList.remove('d-none');
-    getId('content').classList.add('disable-scrolling');
+
 }
 
 function closeDialog() {
+    getId('HtmlID').classList.remove('freeze');
     getId('dialog').classList.add('d-none');
-    getId('content').classList.remove('disable-scrolling');
+}
+
+document.addEventListener("DOMContentLoaded", function(event) { 
+    var scrollpos = localStorage.getItem('scrollpos');
+    if (scrollpos) window.scrollTo(0, scrollpos);
+});
+
+window.onbeforeunload = function(e) {
+    localStorage.setItem('scrollpos', window.scrollY);
+};
+
+function freeze(){
+    getId('HtmlID').classList.add('freeze');
 }

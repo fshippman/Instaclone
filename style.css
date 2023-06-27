@@ -8,6 +8,7 @@ body {
 html {
     width: 100%;
     overflow-x: hidden;
+    
 }
 
 span {
@@ -226,14 +227,9 @@ a {
     background-color: white;
     border-radius: 10px;
     padding: 24px;
+    overflow: auto;
 }
 
-/* Wenn die deaktiviert ist hüpft die Seite nicht mehr nach oben aber man kann im dialog schrollen */
-/* .disable-scrolling {
-    width: 100vw;
-    height: 90vh;
-    overflow: hidden;
-} */
 
 .dialog-exit {
     width: 100%;
@@ -248,6 +244,10 @@ a {
 
 .d-none {
     display: none;
+}
+
+.freeze {
+    overflow-y: hidden;
 }
 
 /* ---------------------RESPONSIVE--------------------- */
